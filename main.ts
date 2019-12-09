@@ -3,9 +3,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
     for (let index = 0; index < 4; index++) {
         otherSprite.setPosition(Math.randomRange(0, 512), Math.randomRange(0, 512))
     }
-    info.startCountdown(10)
+    info.startCountdown(30)
 })
 let otherSprite: Sprite = null
+effects.bubbles.startScreenEffect()
 // When turned on player cannot enter that color
 scene.setTile(15, img`
 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
@@ -148,52 +149,52 @@ scene.setTile(5, img`
 `, true)
 scene.setTileMap(img`
 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f 8 8 8 8 8 8 f 1 1 f 1 1 1 1 1 1 1 1 1 1 1 f 1 f f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-f 8 f f f f f f f 1 f 1 f f f f f f f f f 1 f 1 f f 1 f f f f f f f f f f f f f f f f f f f 1 f 
-f 8 f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 1 1 1 f f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 1 f 
-f 8 f 1 f f f f f f f f f f f f f f f 1 f f f f f f 1 f f f f f f f f 1 f f f f f f f 1 f f 1 f 
-f 8 f 1 f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f f 1 f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 1 1 f 1 f 
-f 8 f 1 f f f f f f f f f f f f f f f f f f f 1 f f 1 f 1 f 1 f f f f f 1 1 1 1 1 1 f f 1 f 1 f 
-f 8 f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f f 1 f 1 f 1 f 1 1 1 f 1 1 1 1 1 1 1 f 1 1 1 f 
-f f f f f f 1 f f f f f 1 f f f f f 1 f f f f 1 f f 1 f f f 1 f 1 1 1 f f f f f f f 1 f 1 f 1 f 
-f f 8 f 1 1 1 f 1 1 f f 1 1 1 1 1 f 1 1 1 1 1 1 1 1 1 1 1 1 1 f f 1 1 1 1 1 1 1 1 1 1 f 1 f f f 
-f f 8 f f 1 f f 1 1 f 1 1 1 1 1 1 f 1 f f f f f f f f f f f 1 1 f 1 f f f f f 1 f f f f 1 f 1 f 
-f f 8 8 f 1 f 1 1 1 f 1 f f f f f f 1 1 1 f 1 1 1 1 1 f f f f 1 f 1 f 8 8 8 f 1 f 1 1 1 1 f 1 f 
-f f 8 8 f 1 f 1 1 f f 1 f 1 1 1 1 1 1 1 f f 1 f f f 1 f 1 f f 1 f 1 f 8 8 8 f 1 f 1 f f 1 f 1 f 
-f 8 8 8 f 1 f f 1 f 1 1 f 1 f f f f f 1 1 1 1 f 1 1 1 1 1 f f 1 f 1 f 8 8 8 f 1 f 1 f f 1 f 1 f 
-f 8 8 8 f 1 1 1 1 f 1 1 f 1 f 1 1 1 f f f f f f f f f f f f f 1 f 1 f 8 8 8 f 1 f 1 f f 1 f 1 f 
-f 8 8 8 f f f f 1 f 1 1 f 1 f 1 f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 1 f 8 8 8 f 1 f 1 f f 1 f 1 f 
-f f f f f 1 f 1 1 f 1 1 f 1 f 1 f f f f f f f f f f f f f f f f f 1 f f 8 8 f 1 f 1 f f 1 1 1 f 
-f 1 1 1 1 1 1 1 1 f 1 1 f 1 f 1 1 1 1 1 1 1 f 1 f 1 f 1 1 1 1 1 1 1 1 f 8 8 f 1 f 1 1 f f f 1 f 
-f 1 f f f f f f f f f 1 f 1 f f f f f f f f f 1 f 1 f 1 f f f f f f 1 f 8 8 f 1 f 1 f f 1 1 1 f 
-f 1 f 1 1 1 1 1 1 1 f 1 f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 1 f 1 1 1 1 f 1 f 8 8 f 1 f 1 1 1 1 f f f 
-f f f f 1 1 1 1 1 1 f 1 f 1 f f f f f f f f f f f 1 f 1 f 1 f 1 f f 1 f 8 8 f 1 f 1 f f f f f f 
-f 1 1 f 1 1 1 1 1 1 f 1 f 1 f 1 1 1 1 1 1 f 1 1 f 1 f 1 f 1 f 1 f f 1 f f f f 1 f 1 f 1 1 1 1 f 
-f 1 1 1 f 1 1 1 1 1 f 1 f 1 f 1 f f f f f f 1 1 f 1 1 1 f 1 f 1 1 1 1 1 1 1 1 1 f 1 f 1 1 1 1 f 
-f 1 1 1 1 f 1 1 1 1 f 1 f 1 f 1 1 f 1 1 1 1 1 1 1 1 1 1 f 1 f f f f f f f f f f f 1 f f f f f f 
-f 1 1 1 1 1 f 1 1 1 f 1 f 1 f 1 f f 1 f f f f f f f f f f f f f 1 1 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
-f 1 1 1 1 1 1 f 1 1 f 1 f 1 f 1 1 1 1 f 1 1 1 1 1 1 1 1 1 1 1 f 1 1 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
-f 1 1 1 1 1 1 1 f f f 1 f f f f f f f f 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f 1 1 1 1 1 1 f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 f f f f f f f f f f f f f f f f f f 1 1 1 1 1 1 1 1 1 1 1 f f f 1 f 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 8 f 1 1 1 1 1 1 1 1 1 1 1 f 8 f 1 f 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 f f f f f f f f f f f f 1 f 1 f 8 f f f f f f f f f f f f f 8 f 1 f 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 f 1 1 1 1 1 1 1 1 1 1 f 1 f 1 f 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 f 1 f 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 1 1 f f f f f f f f 1 f 1 f 1 f f f f f f f 1 f f 1 f f f f f f 1 f 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 f 1 f 1 1 1 1 1 1 f 1 1 1 f 1 1 1 1 1 1 1 1 1 f f 1 1 1 1 1 1 1 1 f 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 f 1 f 1 f f f f 1 f f f f f f f f f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 f 1 1 1 1 1 1 1 1 1 1 1 f 1 1 1 1 f f f f f f f f f f f f f f f f f f 1 1 1 1 1 1 1 1 1 1 f 
-f 1 f f f f f f f f f f f 1 f 1 1 1 1 1 1 f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 1 1 f 1 1 1 1 1 1 1 1 1 f 1 1 1 1 1 1 f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 f f f f f f f f f f f f f 1 1 1 1 1 1 f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 f 1 f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 f 1 f f f f f f f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 f 1 1 1 1 1 1 1 f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 f f f f f f 1 1 f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 1 1 1 1 1 1 1 1 f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 f f f f f f f f f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+f 8 8 8 8 8 8 f 7 7 f 7 7 7 7 7 7 7 7 7 7 7 f 7 f f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+f 8 f f f f f f f 7 f 7 f f f f f f f f f 7 f 7 f f 7 f f f f f f f f f f f f f f f f f f f 7 f 
+f 8 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 7 f f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 7 f 
+f 8 f 7 f f f f f f f f f f f f f f f 7 f f f f f f 7 f f f f f f f f 7 f f f f f f f 7 f f 7 f 
+f 8 f 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f f 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 f 7 f 
+f 8 f 7 f f f f f f f f f f f f f f f f f f f 7 f f 7 f 7 f 7 f f f f f 7 7 7 7 7 7 f f 7 f 7 f 
+f 8 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f f 7 f 7 f 7 f 7 7 7 f 7 7 7 7 7 7 7 f 7 7 7 f 
+f f f f f f 7 f f f f f 7 f f f f f 7 f f f f 7 f f 7 f f f 7 f 7 7 7 f f f f f f f 7 f 7 f 7 f 
+f f 8 f 7 7 7 f 7 7 f f 7 7 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 f f 7 7 7 7 7 7 7 7 7 7 f 7 f f f 
+f f 8 f f 7 f f 7 7 f 7 7 7 7 7 7 f 7 f f f f f f f f f f f 7 7 f 7 f f f f f 7 f f f f 7 f 7 f 
+f f 8 8 f 7 f 7 7 7 f 7 f f f f f f 7 7 7 f 7 7 7 7 7 f f f f 7 f 7 f 8 8 8 f 7 f 7 7 7 7 f 7 f 
+f f 8 8 f 7 f 7 7 f f 7 f 7 7 7 7 7 7 7 f f 7 f f f 7 f 7 f f 7 f 7 f 8 8 8 f 7 f 7 f f 7 f 7 f 
+f 8 8 8 f 7 f f 7 f 7 7 f 7 f f f f f 7 7 7 7 f 7 7 7 7 7 f f 7 f 7 f 8 8 8 f 7 f 7 f f 7 f 7 f 
+f 8 8 8 f 7 7 7 7 f 7 7 f 7 f 7 7 7 f f f f f f f f f f f f f 7 f 7 f 8 8 8 f 7 f 7 f f 7 f 7 f 
+f 8 8 8 f f f f 7 f 7 7 f 7 f 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 7 f 8 8 8 f 7 f 7 f f 7 f 7 f 
+f f f f f 7 f 7 7 f 7 7 f 7 f 7 f f f f f f f f f f f f f f f f f 7 f f 8 8 f 7 f 7 f f 7 7 7 f 
+f 7 7 7 7 7 7 7 7 f 7 7 f 7 f 7 7 7 7 7 7 7 f 7 f 7 f 7 7 7 7 7 7 7 7 f 8 8 f 7 f 7 7 f f f 7 f 
+f 7 f f f f f f f f f 7 f 7 f f f f f f f f f 7 f 7 f 7 f f f f f f 7 f 8 8 f 7 f 7 f f 7 7 7 f 
+f 7 f 8 8 8 8 8 8 8 f 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 7 f 7 7 7 7 f 7 f 8 8 f 7 f 7 7 7 7 f f f 
+f f f f 8 8 8 8 8 8 f 7 f 7 f f f f f f f f f f f 7 f 7 f 7 f 7 f f 7 f 8 8 f 7 f f f f f f f f 
+f f 7 f 8 8 8 8 8 8 f 7 f 7 f 7 7 7 7 7 7 f 7 7 f 7 f 7 f 7 f 7 f f 7 f f f f 7 f 7 f 8 8 8 8 f 
+f 7 7 7 f 8 8 8 8 8 f 7 f 7 f 7 f f f f f f 7 7 f 7 7 7 f 7 f 7 7 7 7 7 7 7 7 7 f 7 f 8 8 8 8 f 
+f 7 f 7 7 f 8 8 8 8 f 7 f 7 f 7 7 f 7 7 7 7 7 7 7 7 7 7 f 7 f f f f f f f f f f f 7 f f f f f f 
+f 7 f f 7 7 f 8 8 8 f 7 f 7 f 7 f f 7 f f f f f f f f f f f f f 8 8 8 8 8 8 8 8 f 7 f 7 7 7 f f 
+f 7 f 7 f 7 7 f 8 8 f 7 f 7 f 7 7 7 7 f 7 7 7 7 7 7 7 7 f f f f 8 8 8 8 8 8 8 8 f 7 7 7 f 7 f f 
+f 7 f 7 f f 7 7 f f f 7 f f f f f f f f f 7 f f f f f 7 7 7 7 f f f f f f f f f f 7 f f f 7 f f 
+f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 7 f 8 8 8 f f f f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 f 
+f 7 f f f f f f f f f f f f f f f f f f f 7 f f f f f f f f f f f f 7 f 7 f f f f f f f f f f f 
+f 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 8 f 7 7 7 7 7 7 7 7 7 7 7 f f f 7 f 7 f 7 7 e f 8 f f f f f 
+f 7 f f f f f f f f f f f f 7 f 7 f 8 f f f f f f f f f f f 7 f f f 7 f 7 f 7 7 e 8 8 8 8 8 8 f 
+f 7 f 7 7 7 7 7 7 7 7 7 7 f 7 f 7 f 8 8 8 8 8 8 8 8 8 8 8 f 7 f f f f f 7 f 7 e e 8 8 8 8 8 8 f 
+f 7 7 7 f f f f f f f f 7 f 7 f 7 f f f f f f f 7 f f 7 f f 7 f f f 7 f 7 f 7 e 8 8 8 8 8 8 8 f 
+f 7 f 7 f 7 7 7 7 7 7 f 7 7 7 f 7 7 7 7 7 7 7 7 7 f f 7 7 7 7 7 7 7 7 f 7 f f f 8 8 8 8 8 8 8 f 
+f 7 f 7 f 7 f f f f 7 f f f f f f f f f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 7 f 8 8 8 8 8 8 8 f 
+f 7 f 7 7 7 7 7 7 7 7 7 7 7 f 7 7 7 7 f f f f f f f f f f f f f f f f f f 7 7 f 8 8 8 8 8 8 8 f 
+f 7 f f f f f f f f f f f 7 f 7 f f f f 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 7 f f 8 8 8 8 8 8 8 f 
+f 7 7 7 f 7 7 7 7 7 7 7 7 7 f 7 7 7 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 7 f 8 8 8 8 8 8 8 8 f 
+f 7 f f f f f f f f f f f f f f f f f f 7 f 7 7 5 5 5 5 5 5 5 5 5 5 5 7 f 7 f 8 8 8 8 8 8 8 8 f 
+f 7 f 7 7 7 7 7 7 7 7 7 7 f 7 7 f 7 7 f 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 8 8 8 8 8 8 8 8 f 
+f 7 f 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 8 8 8 8 8 8 8 8 f 
+f 7 f 7 f f f f f f f 7 f f f f f f f f f f f f f f f f f f f f f f f f f f f 8 8 8 8 8 8 8 8 f 
+f 7 f 7 7 7 7 7 7 7 f 7 f 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 f 
+f 7 f f f f f f 7 7 f 7 f 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 f 
+f 7 7 7 7 7 7 7 7 7 f 7 f 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 f 
+f 7 f f f f f f f f f 7 f 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 f 
+f 7 7 7 7 7 7 7 7 7 7 7 f 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 f 
 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
 `, TileScale.ThirtyTwo)
 let mySprite = sprites.create(img`
@@ -215,7 +216,7 @@ e e f 6 6 6 6 6 6 f e e .
 . . . f f . . f f . . . . 
 `, SpriteKind.Player)
 // Controls the Sprite
-controller.moveSprite(mySprite, 200, 100)
+controller.moveSprite(mySprite, 300, 250)
 // The camera follows sprite throughout game
 scene.cameraFollowSprite(mySprite)
 mySprite.setPosition(141, 117)
@@ -238,7 +239,7 @@ for (let index = 0; index < 80; index++) {
 . . . . . . . . . . . c 1 b c . 
 . . . . . . . . . . . . c c . . 
 `, SpriteKind.Food)
-    otherSprite.setPosition(Math.randomRange(32, 512), Math.randomRange(0, 512))
+    otherSprite.setPosition(Math.randomRange(12, 1020), Math.randomRange(0, 1020))
     mySprite.z = 1
 }
 info.startCountdown(1000)
